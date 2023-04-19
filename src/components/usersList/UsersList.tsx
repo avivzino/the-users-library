@@ -10,18 +10,6 @@ export const UsersList = () => {
   const dispatch = useDispatch();
   const updatedUsers = useSelector(getUpdatedUsers);
   const [users, setUsers] = useState<User[]>();
-  console.log(users);
-
-  // useEffect(() => {
-  //   axios
-  //     .get('https://randomuser.me/api/?results=10')
-  //     .then(response => {
-  //       setUsers(response.data.results);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }, []);
 
   useEffect(() => {
     async function fetchUsers() {
@@ -45,11 +33,7 @@ export const UsersList = () => {
     if (users) {
       dispatch(setUpdatedUsers(users));
     }
-    // console.log('@@@@@@');
   }, [dispatch, users]);
-
-  // console.log({updatedUsers});
-  // console.log({users});
 
   const usersList = updatedUsers ?? users;
 
@@ -60,9 +44,6 @@ export const UsersList = () => {
         gap: 20,
         paddingBottom: 20,
       }}>
-      {/* {updatedUsers?.map(user => (
-        <UserCard key={user.id?.value ?? user.login?.uuid} userData={user} />
-      ))} */}
       {usersList.map(user => (
         <UserCard key={user.id?.value ?? user.login?.uuid} userData={user} />
       ))}

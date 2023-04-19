@@ -9,7 +9,6 @@ export const AddUserFormWrapper = styled.View`
 
 export const FieldWrapper = styled.View`
   flex-direction: row;
-  // align-self: center;
   align-items: center;
 `;
 
@@ -19,17 +18,19 @@ export const FieldText = styled.Text`
 `;
 
 export const FieldInput = styled.TextInput`
-  border: 2px solid pink;
+  border: 2px solid #8eaec4;
+  border-radius: 5px;
   padding: 5px;
   width: 75%;
   font-size: 18px;
 `;
 
 export const SubmitButton = styled.TouchableOpacity`
-  border: 2px solid pink;
-  padding: 15px;
-  background: grey;
-  width: 50%;
+  border: 2px solid #8eaec4;
+  border-radius: 5px;
+  background-color: #336a86;
+  padding: 10px;
+  width: 40%;
   margin-top: 20px;
   align-self: center;
 `;
@@ -37,4 +38,5 @@ export const SubmitButton = styled.TouchableOpacity`
 export const SubmitText = styled.Text`
   font-size: 20px;
   text-align: center;
+  color: white;
 `;

@@ -12,11 +12,12 @@ export const UserCard = ({userData}: Props) => (
   <S.UserCardWrapper>
     <Image
       source={{uri: userData.picture?.medium}}
-      style={{width: 150, height: 150}}
+      style={{width: 170, height: 170}}
     />
     {userProperties.map(property => (
-      <S.PropertyText key={property.label}>
-        {property.label}: {property.value(userData)}
+      <S.PropertyText key={property.label} isName={property.label === ''}>
+        {property.label}
+        {property.value(userData)}
       </S.PropertyText>
     ))}
   </S.UserCardWrapper>
