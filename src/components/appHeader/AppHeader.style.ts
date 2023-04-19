@@ -13,16 +13,15 @@ export const HeaderText = styled.Text`
 
 export const NavBarButtonsWrapper = styled.View`
   flex-direction: row;
-  gap: 15px;
+  gap: 55px;
   margin-top: 20px;
 `;
 
 export const NavButton = styled.TouchableOpacity`
-  border: 2px solid #336a86;
-  border-radius: 5px;
-  background-color: #8eaec4;
+  border-bottom-width: 2px;
+  border-bottom-color: #336a86;
   padding: 7px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 export const NavText = styled.Text`

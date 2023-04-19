@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import {Alert} from 'react-native';
-import * as S from './AddUserForm.style';
-import {NewUser} from '../../types/common';
-import {formFields} from './config';
-import {addNewUser, getUpdatedUsers} from '../../store/reducer';
+import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
+import {addNewUser, getUpdatedUsers} from '../../store/reducer';
+import {formFields} from './config';
+import {NewUser} from '../../types/common';
+import * as S from './AddUserForm.style';
 
 export const AddUserForm = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const updatedUsers = useSelector(getUpdatedUsers);
-  console.log({updatedUsers});
   const [userDetails, setUserDetails] = useState<NewUser>({
     name: '',
     email: '',

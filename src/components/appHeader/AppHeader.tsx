@@ -1,8 +1,8 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
-import * as S from './AppHeader.style';
-import logo from '../../assets/images/logo.png';
 import {Image} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import logo from '../../assets/images/logo.png';
+import * as S from './AppHeader.style';
 
 export const AppHeader = () => {
   const navigation = useNavigation();

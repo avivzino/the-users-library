@@ -26,3 +26,16 @@ export interface NewUser {
   city: string;
   country: string;
 }
+
+export interface FieldsToUpdate {
+  name?: string;
+  email?: string;
+  location?: string;
+}
+
+export interface UserProperty {
+  label: string;
+  key: string;
+  value: (userData: User) => string | undefined;
+  editable: boolean;
+}

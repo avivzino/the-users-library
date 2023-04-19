@@ -12,14 +12,6 @@ const App = (): JSX.Element => {
       <NavigationContainer>
         <S.AppWrapper>
           <AppHeader />
-          {/* Should be in AppHeader */}
-
-          {/* <S.Header>The Users Library</S.Header>
-          <S.AddUserButton onPress={() => setIsAddUserClicked(prev => !prev)}>
-            <S.AddUserText>Add User</S.AddUserText>
-          </S.AddUserButton>
-          {isAddUserClicked ? <AddUser /> : <UsersList />} */}
-          {/* <Users /> */}
           <Navigation />
         </S.AppWrapper>
       </NavigationContainer>

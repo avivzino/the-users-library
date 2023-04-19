@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const AddUserFormWrapper = styled.View`
-  padding: 15px;
+  padding: 15px 45px;
   width: 100%;
   gap: 20px;
   margin-top: 20px;
@@ -14,7 +14,7 @@ export const FieldWrapper = styled.View`
 
 export const FieldText = styled.Text`
   font-size: 18px;
-  padding-end: 5px;
+  padding-end: 10px;
 `;
 
 export const FieldInput = styled.TextInput`

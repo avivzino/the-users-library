@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import axios from 'axios';
-import {User} from '../../types/common';
-import {UserCard} from '../userCard';
-import * as S from './UsersList.style';
 import {getUpdatedUsers, setUpdatedUsers} from '../../store/reducer';
+import {UserCard} from '../userCard';
+import {FieldsToUpdate, User} from '../../types/common';
+import * as S from './UsersList.style';
 
 export const UsersList = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,6 @@ export const UsersList = () => {
         console.log(error);
       }
     }
-    console.log({users});
     if (!users) {
       fetchUsers();
     }
@@ -37,6 +36,38 @@ export const UsersList = () => {
 
   const usersList = updatedUsers ?? users;
 
+  const onUserDelete = (userId?: string) => {
+    const filteredUsers = usersList.filter(
+      user => (user.id?.value || user.login?.uuid) !== userId,
+    );
+    dispatch(setUpdatedUsers(filteredUsers));
+  };
+
+  const onUserChange = ({
+    updatedFields,
+    userId,
+  }: {
+    updatedFields: FieldsToUpdate;
+    userId?: string;
+  }) => {
+    const mappedUsers = usersList.map(user => {
+      if (user.id?.value === userId || user.login?.uuid === userId) {
+        return {
+          ...user,
+          name: {title: '', first: updatedFields.name, last: ''},
+          email: updatedFields.email,
+          location: {
+            country: '',
+            city: updatedFields.location,
+            street: {number: '', name: ''},
+          },
+        };
+      }
+      return user;
+    });
+    dispatch(setUpdatedUsers(mappedUsers));
+  };
+
   return (
     <S.UsersListWrapper
       contentContainerStyle={{
@@ -45,7 +76,12 @@ export const UsersList = () => {
         paddingBottom: 20,
       }}>
       {usersList.map(user => (
-        <UserCard key={user.id?.value ?? user.login?.uuid} userData={user} />
+        <UserCard
+          key={user.id?.value ?? user.login?.uuid}
+          user={user}
+          onDelete={onUserDelete}
+          onChange={onUserChange}
+        />
       ))}
     </S.UsersListWrapper>
   );
