@@ -46,7 +46,6 @@ export const AddUserForm = () => {
     // Check if email is valid
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(userDetails.email)) {
-      // alert('Invalid email address');
       Alert.alert('Error', 'Invalid email address', [{text: 'OK'}], {
         cancelable: false,
       });
