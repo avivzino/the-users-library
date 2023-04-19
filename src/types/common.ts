@@ -13,8 +13,16 @@ type Location = {
 export interface User {
   name: Name;
   email: string;
-  picture: {medium: string};
+  picture?: {medium: string};
   location: Location;
-  login: {uuid?: string};
-  id: {value?: string};
+  login?: {uuid?: string};
+  id?: {value?: string};
+}
+
+export interface NewUser {
+  name: string;
+  email: string;
+  street: string;
+  city: string;
+  country: string;
 }

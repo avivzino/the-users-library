@@ -1,22 +1,29 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import {UsersList} from '../components/usersList';
+import {Provider} from 'react-redux';
+import {NavigationContainer} from '@react-navigation/native';
+import {Navigation} from './Navigation';
+import {store} from '../store/store';
+import {AppHeader} from '../components/appHeader';
 import * as S from './App.style';
 
 const App = (): JSX.Element => {
-  console.log('hello');
-
-  // console.log(data);
-
   return (
-    <SafeAreaView>
-      {/* <ScrollView contentInsetAdjustmentBehavior="automatic"> */}
-      <S.AppWrapper>
-        <S.Header>The Users Library</S.Header>
-        <UsersList />
-        {/* </ScrollView> */}
-      </S.AppWrapper>
-    </SafeAreaView>
+    <Provider store={store}>
+      <NavigationContainer>
+        <S.AppWrapper>
+          <AppHeader />
+          {/* Should be in AppHeader */}
+
+          {/* <S.Header>The Users Library</S.Header>
+          <S.AddUserButton onPress={() => setIsAddUserClicked(prev => !prev)}>
+            <S.AddUserText>Add User</S.AddUserText>
+          </S.AddUserButton>
+          {isAddUserClicked ? <AddUser /> : <UsersList />} */}
+          {/* <Users /> */}
+          <Navigation />
+        </S.AppWrapper>
+      </NavigationContainer>
+    </Provider>
   );
 };
 
